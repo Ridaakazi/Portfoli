@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>My Desktop</title>
+</head>
+<body>
+    <div class="desktop">
+        {% include 'desk_icons.html' %}
+        {% include 'windows.html' %}
+        {% include 'files.html' %}
+    </div>
+    <div id="game-output" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <div class="search-bar">
+                <i class="fa fa-search"></i>
+                <input type="text">
+            </div>
+            <div class="time-date">
+                <div id="time"></div>
+                <div id="date" style="margin-left: 10px;"></div>
+            </div>
+        </div>
+    
+    <script src="/static/java.js"></script>
+
+</body>
+</html>

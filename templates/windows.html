@@ -1,0 +1,129 @@
+<!-- My PC Section -->
+<div id="window1" class="window">
+    <header>
+        <div>My PC</div>
+        <button onclick="closeWindow('window1')">✖</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openFile('file1')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <div>File 1</div>
+        </div>
+        <div class="file" onclick="openFile('file2')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <div>File 2</div>
+        </div>
+        <div class="file" onclick="openFile('file3')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <div>File 3</div>
+        </div>
+    </div>
+</div>
+
+<!-- Sketches Section -->
+<div id="window2" class="window">
+    <header>
+        <div>Sketches</div>
+        <button onclick="closeWindow('window2')">✖</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openWindow('window21')">
+            <img src="{{ url_for('static', filename='img/pic.png') }}" alt="File Icon">
+            <div>File 1</div>
+        </div>
+        <div class="file" onclick="openWindow('window22')">
+            <img src="{{ url_for('static', filename='img/pic.png') }}" alt="File Icon">
+            <div>File 2</div>
+        </div>
+        <div class="file" onclick="openWindow('window23')">
+            <img src="{{ url_for('static', filename='img/pic.png') }}" alt="File Icon">
+            <div>File 3</div>
+        </div>
+    </div>
+</div>
+
+<!-- Games Section -->
+<div id="window3" class="window">
+    <header>
+        <div>Games</div>
+        <button onclick="closeWindow('window3')">✖</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openGame('stone.exe')">
+            <img src="{{ url_for('static', filename='img/rock-paper-scissors.png') }}" alt="Game Icon">
+            <div>Stone Paper Scissors</div>
+        </div>
+        <div class="file" onclick="openGame('snake.exe')">
+            <img src="{{ url_for('static', filename='img/snake.png') }}" alt="Game Icon">
+            <div>Snake Game</div>
+        </div>
+        <div class="file" onclick="openGame('4_in_a_row.exe')">
+            <img src="{{ url_for('static', filename='img/rec.png') }}" alt="Game Icon">
+            <div>4 in a Row</div>
+        </div>
+        <div class="file" onclick="openGame('tic_tac_toe.exe')">
+            <img src="{{ url_for('static', filename='img/game.png') }}" alt="Game Icon">
+            <div>Tic Tac Toe</div>
+        </div>
+    </div>
+</div>
+
+<!-- Figma Work Section -->
+<div id="window4" class="window">
+    <header>
+        <div>Figma Work</div>
+        <button onclick="closeWindow('window4')">✖</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openWindow('window41')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <div>Fitness App</div>
+        </div>
+        <div class="file" onclick="openWindow('window42')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <div>Consulting App</div>
+        </div>
+        <div class="file" onclick="openLink('https://www.figma.com/design/DA038Pk29l8MzrRqdnxK1P/Fitness-App?node-id=0-1&t=eODoh3SQhcXbUzFf-1')">
+            <img src="{{ url_for('static', filename='img/figma.png') }}" alt="Figma">
+            <div>Fitness App</div>
+        </div>
+        <div class="file" onclick="openLink('https://www.figma.com/design/l30adDewV8sSLaJDArSXrw/WeBridge?node-id=1-3&t=eODoh3SQhcXbUzFf-1')">
+            <img src="{{ url_for('static', filename='img/figma.png') }}" alt="Figma">
+            <div>Webridge</div>
+        </div>
+        <div class="file" onclick="openLink('https://www.figma.com/design/dJUZPzOp1cVSd3UNcHBVYC/consulting-website?node-id=0-1&t=eODoh3SQhcXbUzFf-1')">
+            <img src="{{ url_for('static', filename='img/figma.png') }}" alt="Figma">
+            <div>Consulting App</div>
+        </div>
+    </div>
+</div>
+
+<!-- Canva Designs Section -->
+<div id="window5" class="window">
+    <header>
+        <div>Canva Designs</div>
+        <button onclick="closeWindow('window5')">✖</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openWindow('window51')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <div>Fitness App</div>
+        </div>
+        <div class="file" onclick="openWindow('window52')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <div>Posters</div>
+        </div>
+        <div class="file" onclick="openLink('https://www.canva.com/design/DAF-jsE6a4Q/lzizizyZO9fbH-woCxuQaw/edit?utm_content=DAF-jsE6a4Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton')">
+            <img src="{{ url_for('static', filename='img/canva.png') }}" alt="Canva">
+            <div>LinkedIn Banner</div>
+        </div>
+        <div class="file" onclick="openLink('https://www.canva.com/design/DAF7kqxwB3U/gcBB1IdXGanRM0cg5faqGw/edit?utm_content=DAF7kqxwB3U&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton')">
+            <img src="{{ url_for('static', filename='img/canva.png') }}" alt="Canva">
+            <div>Event Video</div>
+        </div>
+        <div class="file" onclick="openLink('https://www.canva.com/design/DAGAuw73apg/ORDbm8dE8MGdmGC_Y1wnTA/edit?utm_content=DAGAuw73apg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton')">
+            <img src="{{ url_for('static', filename='img/canva.png') }}" alt="Canva">
+            <div>Fitness App Landing Page</div>
+        </div>
+    </div>
+</div>
