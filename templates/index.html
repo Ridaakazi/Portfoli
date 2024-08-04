@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"> -->
+    <!-- <script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
     <title>My Desktop</title>
 </head>
 <body>
@@ -13,6 +15,7 @@
         {% include 'desk_icons.html' %}
         {% include 'windows.html' %}
         {% include 'files.html' %}
+    
     </div>
     <div id="game-output" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
         <!-- Taskbar -->

@@ -19,35 +19,6 @@ function openGame(gameFile) {
     window.location.href = `/games/${gameFile}`;
 }
 
-
-
-// let currentDraggable = null;
-
-// document.querySelectorAll('.window').forEach(windowElem => {
-//     windowElem.addEventListener('mousedown', (e) => {
-//         if (e.target.tagName === 'BUTTON') return; // Ignore the close button
-//         currentDraggable = windowElem;
-//         const rect = windowElem.getBoundingClientRect();
-//         const offsetX = e.clientX - rect.left;
-//         const offsetY = e.clientY - rect.top;
-
-//         function onMouseMove(e) {
-//             currentDraggable.style.left = `${e.clientX - offsetX}px`;
-//             currentDraggable.style.top = `${e.clientY - offsetY}px`;
-//         }
-
-//         function onMouseUp() {
-//             document.removeEventListener('mousemove', onMouseMove);
-//             document.removeEventListener('mouseup', onMouseUp);
-//             currentDraggable = null;
-//         }
-
-//         document.addEventListener('mousemove', onMouseMove);
-//         document.addEventListener('mouseup', onMouseUp);
-//     });
-// });
-
-
 document.querySelectorAll('.window').forEach(windowElem => {
     windowElem.addEventListener('mousedown', (e) => {
         if (e.target.classList.contains('window-resize')) {
@@ -101,53 +72,36 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-function updateTime() {
-    const now = new Date();
-    const time = now.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
-    const date = now.toLocaleDateString();
-    document.getElementById('time').textContent = time;
-    document.getElementById('date').textContent = date;
-}
 
-setInterval(updateTime, 1000);
-updateTime();
 
-// document.querySelectorAll('.window').forEach(windowElem => {
-//     windowElem.addEventListener('mousedown', (e) => {
-//         if (e.target.classList.contains('window-resize')) {
-//             let startX = e.clientX;
-//             let startY = e.clientY;
-//             let startWidth = parseInt(document.defaultView.getComputedStyle(windowElem).width, 10);
-//             let startHeight = parseInt(document.defaultView.getComputedStyle(windowElem).height, 10);
+// function openGame(gameId) {
+//     const gameContainer = document.getElementById('gameContent');
+//     if (gameId === 'stone') {
+//         const gameContent = `
+//             <div>
+//                 <button id="stone">✊ Stone</button>
+//                 <button id="paper">✋ Paper</button>
+//                 <button id="scissors">✌ Scissors</button>
+//             </div>
+//             <div id="result"></div>
+//         `;
+//         gameContainer.innerHTML = gameContent;
+//         gameContainer.style.display = 'block';
+//     }
+//     // You can add similar conditions for other games and embed their content here
+// }
 
-//             function doDrag(e) {
-//                 windowElem.style.width = startWidth + e.clientX - startX + 'px';
-//                 windowElem.style.height = startHeight + e.clientY - startY + 'px';
-//             }
+// function loadGameContent() {
+//     fetch('/templates/scripts.html')
+//         .then(response => response.text())
+//         .then(data => {
+//             document.getElementById('gameContent').innerHTML = data;
+//         })
+//         .catch(error => console.error('Error loading game content:', error));
+// }
 
-//             function stopDrag() {
-//                 document.removeEventListener('mousemove', doDrag, false);
-//                 document.removeEventListener('mouseup', stopDrag, false);
-//             }
+// window.onload = loadGameContent;
 
-//             document.addEventListener('mousemove', doDrag, false);
-//             document.addEventListener('mouseup', stopDrag, false);
-//         } else if (e.target.tagName !== 'BUTTON') {
-//             let offsetX = e.clientX - windowElem.getBoundingClientRect().left;
-//             let offsetY = e.clientY - windowElem.getBoundingClientRect().top;
-
-//             function onMouseMove(e) {
-//                 windowElem.style.left = `${e.clientX - offsetX}px`;
-//                 windowElem.style.top = `${e.clientY - offsetY}px`;
-//             }
-
-//             function onMouseUp() {
-//                 document.removeEventListener('mousemove', onMouseMove);
-//                 document.removeEventListener('mouseup', onMouseUp);
-//             }
-
-//             document.addEventListener('mousemove', onMouseMove);
-//             document.addEventListener('mouseup', onMouseUp);
-//         }
-//     });
-// });
+// function closeWindow(id) {
+//     document.getElementById(id).style.display = 'none';
+// }
