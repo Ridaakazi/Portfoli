@@ -1,5 +1,16 @@
+// Keep track of the highest z-index value
+let zIndexCounter = 10;
+
+function bringToFront(windowElem) {
+    // Increment the z-index counter and assign it to the window
+    zIndexCounter++;
+    windowElem.style.zIndex = zIndexCounter;
+}
+
 function openWindow(id) {
-    document.getElementById(id).style.display = 'block';
+    const windowElem = document.getElementById(id);
+    windowElem.style.display = 'block';
+    bringToFront(windowElem);
 }
 
 function closeWindow(id) {
@@ -19,17 +30,17 @@ function openGame(gameFile) {
     window.location.href = `/games/${gameFile}`;
 }
 
-     // Wait for the video to finish
-     const video = document.getElementById('intro-video');
-     const videoOverlay = document.getElementById('video-overlay');
-     const mainContent = document.querySelector('.desktop');
-     const taskbar = document.querySelector('.taskbar');
+// Wait for the video to finish
+const video = document.getElementById('intro-video');
+const videoOverlay = document.getElementById('video-overlay');
+const mainContent = document.querySelector('.desktop');
+const taskbar = document.querySelector('.taskbar');
 
-     video.onended = function() {
-         videoOverlay.style.display = 'none'; // Hide the video overlay
-         mainContent.style.display = 'block'; // Show the main content
-         taskbar.style.display = 'flex'; // Show the taskbar
-     };
+video.onended = function() {
+    videoOverlay.style.display = 'none'; // Hide the video overlay
+    mainContent.style.display = 'block'; // Show the main content
+    taskbar.style.display = 'flex'; // Show the taskbar
+};
 
 document.querySelectorAll('.window').forEach(windowElem => {
     windowElem.addEventListener('mousedown', (e) => {
@@ -53,6 +64,9 @@ document.querySelectorAll('.window').forEach(windowElem => {
             document.addEventListener('mousemove', doDrag, false);
             document.addEventListener('mouseup', stopDrag, false);
         } else if (e.target.tagName !== 'BUTTON') {
+            // Bring the window to the front when clicked
+            bringToFront(windowElem);
+
             // Drag logic
             let offsetX = e.clientX - windowElem.getBoundingClientRect().left;
             let offsetY = e.clientY - windowElem.getBoundingClientRect().top;
@@ -83,4 +97,3 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
-
