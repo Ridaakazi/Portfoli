@@ -19,6 +19,18 @@ function openGame(gameFile) {
     window.location.href = `/games/${gameFile}`;
 }
 
+     // Wait for the video to finish
+     const video = document.getElementById('intro-video');
+     const videoOverlay = document.getElementById('video-overlay');
+     const mainContent = document.querySelector('.desktop');
+     const taskbar = document.querySelector('.taskbar');
+
+     video.onended = function() {
+         videoOverlay.style.display = 'none'; // Hide the video overlay
+         mainContent.style.display = 'block'; // Show the main content
+         taskbar.style.display = 'flex'; // Show the taskbar
+     };
+
 document.querySelectorAll('.window').forEach(windowElem => {
     windowElem.addEventListener('mousedown', (e) => {
         if (e.target.classList.contains('window-resize')) {
@@ -72,36 +84,3 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-
-
-// function openGame(gameId) {
-//     const gameContainer = document.getElementById('gameContent');
-//     if (gameId === 'stone') {
-//         const gameContent = `
-//             <div>
-//                 <button id="stone">✊ Stone</button>
-//                 <button id="paper">✋ Paper</button>
-//                 <button id="scissors">✌ Scissors</button>
-//             </div>
-//             <div id="result"></div>
-//         `;
-//         gameContainer.innerHTML = gameContent;
-//         gameContainer.style.display = 'block';
-//     }
-//     // You can add similar conditions for other games and embed their content here
-// }
-
-// function loadGameContent() {
-//     fetch('/templates/scripts.html')
-//         .then(response => response.text())
-//         .then(data => {
-//             document.getElementById('gameContent').innerHTML = data;
-//         })
-//         .catch(error => console.error('Error loading game content:', error));
-// }
-
-// window.onload = loadGameContent;
-
-// function closeWindow(id) {
-//     document.getElementById(id).style.display = 'none';
-// }
