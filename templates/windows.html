@@ -2,29 +2,52 @@
 <div id="window1" class="window">
     <header>
         <div>My PC</div>
-        <button onclick="closeWindow('window1')">✖</button>
+        <button  onclick="closeWindow('window1')">❌</button>
     </header>
     <div class="content">
-        <div class="file" onclick="openFile('file1')">
+        <div class="file" onclick="openWindow('window111')">
             <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
-            <div>File 1</div>
+            <div>About me</div>
         </div>
-        <div class="file" onclick="openFile('file2')">
+        <div class="file" onclick="openWindow('window121')">
             <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
-            <div>File 2</div>
+            <div>Frontend-1</div>
         </div>
-        <div class="file" onclick="openFile('file3')">
+        <div class="file" onclick="openWindow('window131')">
             <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
-            <div>File 3</div>
+            <div>Frontend-2</div>
         </div>
+        <div class="file" onclick="openWindow('window141')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <div>Frontend-3</div>
+        </div>
+        <div class="file" onclick="openWindow('window151')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <div>Tech Stack</div>
+        </div>
+        <div class="window-resize"></div> 
     </div>
+
 </div>
+
+<!-- <div id="window621" class="window ">
+    <header>
+        <div>Movie reccomendation app </div>
+        <button onclick="closeWindow('window111')">❌</button>
+    </header>
+    <div class="content">
+<p>
+    This Python script is a basic implementation of a content-based movie recommendation system using the TF-IDF (Term Frequency-Inverse Document Frequency) method to recommend movies based on their plot overviews. The system calculates the similarity between movies using cosine similarity and recommends movies that are most similar to a given title.</p>
+        <img src="/static/img/x1.png" class="sketch-image" alt="Full Image">        
+        <div class="window-resize"></div> 
+    </div>
+</div> -->
 
 <!-- Sketches Section -->
 <div id="window2" class="window">
     <header>
         <div>Sketches</div>
-        <button onclick="closeWindow('window2')">✖</button>
+        <button onclick="closeWindow('window2')">❌</button>
     </header>
     <div class="content">
         <div class="file" onclick="openWindow('window21')">
@@ -39,48 +62,62 @@
             <img src="{{ url_for('static', filename='img/pic.png') }}" alt="File Icon">
             <div>File 3</div>
         </div>
+        <div class="file" onclick="openWindow('window24')">
+            <img src="{{ url_for('static', filename='img/pic.png') }}" alt="File Icon">
+            <div>File 4</div>
+        </div>
+        <div class="file" onclick="openWindow('window25')">
+            <img src="{{ url_for('static', filename='img/pic.png') }}" alt="File Icon">
+            <div>File 5</div>
+        </div>
     </div>
+    <div class="window-resize"></div>
 </div>
 
 <!-- Games Section -->
 <div id="window3" class="window">
     <header>
         <div>Games</div>
-        <button onclick="closeWindow('window3')">✖</button>
+        <button onclick="closeWindow('window3')">❌</button>
     </header>
     <div class="content">
-        <div class="file" onclick="openGame('stone.exe')">
-            <img src="{{ url_for('static', filename='img/rock-paper-scissors.png') }}" alt="Game Icon">
+      <p>Simple games designed in python</p>
+        <div class="file" onclick="openWindow('window34')">
+            <img src="{{ url_for('static', filename='img/me.png') }}" alt="folder icon">
+            <div>Tic Tac Tow Ai game</div>
+        </div>
+        <div class="file" onclick="openWindow('window31')">
+            <img src="{{ url_for('static', filename='img/me.png') }}" alt="folder icon">
             <div>Stone Paper Scissors</div>
         </div>
-        <div class="file" onclick="openGame('snake.exe')">
-            <img src="{{ url_for('static', filename='img/snake.png') }}" alt="Game Icon">
-            <div>Snake Game</div>
+        <div class="file" onclick="openWindow('window32')">
+            <img src="{{ url_for('static', filename='img/me.png') }}" alt="folder icon">
+            <div>Snake game</div>
         </div>
-        <div class="file" onclick="openGame('4_in_a_row.exe')">
-            <img src="{{ url_for('static', filename='img/rec.png') }}" alt="Game Icon">
-            <div>4 in a Row</div>
+        <div class="file" onclick="openWindow('window33')">
+            <img src="{{ url_for('static', filename='img/me.png') }}" alt="folder icon">
+            <div>4 in a Row game</div>
         </div>
-        <div class="file" onclick="openGame('tic_tac_toe.exe')">
-            <img src="{{ url_for('static', filename='img/game.png') }}" alt="Game Icon">
-            <div>Tic Tac Toe</div>
-        </div>
+
     </div>
+    <div class="window-resize"></div> 
+
 </div>
 
 <!-- Figma Work Section -->
 <div id="window4" class="window">
     <header>
         <div>Figma Work</div>
-        <button onclick="closeWindow('window4')">✖</button>
+        <button onclick="closeWindow('window4')">❌</button>
     </header>
     <div class="content">
+        <p>UI designs for websites</p>
         <div class="file" onclick="openWindow('window41')">
-            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <img src="{{ url_for('static', filename='img/pic.png') }}" alt="File Icon">
             <div>Fitness App</div>
         </div>
         <div class="file" onclick="openWindow('window42')">
-            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <img src="{{ url_for('static', filename='img/pic.png') }}" alt="File Icon">
             <div>Consulting App</div>
         </div>
         <div class="file" onclick="openLink('https://www.figma.com/design/DA038Pk29l8MzrRqdnxK1P/Fitness-App?node-id=0-1&t=eODoh3SQhcXbUzFf-1')">
@@ -96,22 +133,27 @@
             <div>Consulting App</div>
         </div>
     </div>
+    <div class="window-resize"></div>
 </div>
 
 <!-- Canva Designs Section -->
 <div id="window5" class="window">
     <header>
         <div>Canva Designs</div>
-        <button onclick="closeWindow('window5')">✖</button>
+        <button onclick="closeWindow('window5')">❌</button>
     </header>
     <div class="content">
         <div class="file" onclick="openWindow('window51')">
             <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
-            <div>Fitness App</div>
+            <div>Banner</div>
         </div>
         <div class="file" onclick="openWindow('window52')">
-            <img src="{{ url_for('static', filename='img/file.png') }}" alt="File Icon">
+            <img src="{{ url_for('static', filename='img/pic.png') }}" alt="File Icon">
             <div>Posters</div>
+        </div>
+        <div class="file" onclick="openWindow('window53')">
+            <img src="{{ url_for('static', filename='img/pic.png') }}" alt="File Icon">
+            <div>Landing Page</div>
         </div>
         <div class="file" onclick="openLink('https://www.canva.com/design/DAF-jsE6a4Q/lzizizyZO9fbH-woCxuQaw/edit?utm_content=DAF-jsE6a4Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton')">
             <img src="{{ url_for('static', filename='img/canva.png') }}" alt="Canva">
@@ -126,4 +168,157 @@
             <div>Fitness App Landing Page</div>
         </div>
     </div>
+    <div class="window-resize"></div>
+</div>
+
+<!-- Projects Section -->
+<div id="window6" class="window">
+    <header>
+        <div>Projects</div>
+        <button onclick="closeWindow('window6')">❌</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openWindow('window61')">
+            <img src="{{ url_for('static', filename='img/me.png') }}" alt="folder icon">
+            <div>Java</div>
+        </div>
+        <div class="file" onclick="openWindow('window62')">
+            <img src="{{ url_for('static', filename='img/me.png') }}" alt="folder icon">
+            <div>Python</div>
+        </div>
+    </div>
+    <div class="window-resize"></div>
+</div>
+
+<!-- games -->
+<div id="window31" class="window">
+    <header>
+        <div>Stone Paper Sissors</div>
+        <button onclick="closeWindow('window31')">❌</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openGame('stone.exe')">
+            <img src="{{ url_for('static', filename='img/rock-paper-scissors.png') }}" alt="Game Icon">
+            <div>Stone Paper Scissors</div>
+        </div>
+        <div class="file" onclick="openLink('https://github.com/Ridaakazi/Stone_Paper_sissors')">
+            <img src="{{ url_for('static', filename='img/git.png') }}" alt="GitHub">
+            <div>GitHub</div>
+        </div>
+        <div class="file" onclick="openWindow('window311')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="folder icon">
+            <div>Stone Paper Sissors</div>
+        </div>
+
+    </div>
+    <div class="window-resize"></div> 
+
+</div>
+
+<div id="window32" class="window">
+    <header>
+        <div>Snake Game</div>
+        <button onclick="closeWindow('window32')">❌</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openGame('snake.exe')">
+            <img src="{{ url_for('static', filename='img/snake.png') }}" alt="Game Icon">
+            <div>Snake Game</div>
+        </div>
+        <div class="file" onclick="openLink('https://github.com/Ridaakazi/Python-Snake-game')">
+            <img src="{{ url_for('static', filename='img/git.png') }}" alt="GitHub">
+            <div>GitHub</div>
+        </div>
+        <div class="file" onclick="openWindow('window321')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="folder icon">
+            <div>Snake game</div>
+        </div>
+   
+    </div>
+    <div class="window-resize"></div> 
+
+</div>
+<div id="window33" class="window">
+    <header>
+        <div>4 in a row</div>
+        <button onclick="closeWindow('window33')">❌</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openGame('4_in_a_row.exe')">
+            <img src="{{ url_for('static', filename='img/rec.png') }}" alt="Game Icon">
+            <div>4 in a Row</div>
+        </div>
+        <div class="file" onclick="openLink('https://github.com/Ridaakazi/4-in-a-row-python-game')">
+            <img src="{{ url_for('static', filename='img/git.png') }}" alt="GitHub">
+            <div>GitHub</div>
+        </div>
+        <div class="file" onclick="openWindow('window331')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="folder icon">
+            <div>4 in a Row game</div>
+        </div>
+   
+
+    </div>
+    <div class="window-resize"></div> 
+
+</div>
+<div id="window34" class="window">
+    <header>
+        <div>Tic Tac Tow Ai game</div>
+        <button onclick="closeWindow('window34')">❌</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openWindow('window34')">
+            <img src="{{ url_for('static', filename='img/game.png') }}" alt="folder icon">
+            <div>Tic Tac Tow Ai game</div>
+        </div>
+        <div class="file" onclick="openLink('https://github.com/Ridaakazi/Tic-Tac-Toe-game')">
+            <img src="{{ url_for('static', filename='img/git.png') }}" alt="GitHub">
+            <div>GitHub</div>
+        </div>
+        <div class="file" onclick="openWindow('window341')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="folder icon">
+            <div>Tic Tac Tow Ai game</div>
+        </div>
+    </div>
+    <div class="window-resize"></div> 
+
+</div>
+
+<div id="window61" class="window">
+    <header>
+        <div>Client Server TCP model</div>
+        <button onclick="closeWindow('window61')">❌</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openLink('https://github.com/Ridaakazi/Client-Server')">
+            <img src="{{ url_for('static', filename='img/git.png') }}" alt="GitHub">
+            <div>GitHub</div>
+        </div>
+        <div class="file" onclick="openWindow('window611')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="folder icon">
+            <div>Client Server</div>
+        </div>
+    </div>
+    <div class="window-resize"></div> 
+
+</div>
+
+<div id="window62" class="window">
+    <header>
+        <div>Movie recommendation App</div>
+        <button onclick="closeWindow('window62')">❌</button>
+    </header>
+    <div class="content">
+        <div class="file" onclick="openLink('https://github.com/Ridaakazi/Movie-recommendation-in-python')">
+            <img src="{{ url_for('static', filename='img/git.png') }}" alt="GitHub">
+            <div>GitHub</div>
+        </div>
+        <div class="file" onclick="openWindow('window631')">
+            <img src="{{ url_for('static', filename='img/file.png') }}" alt="folder icon">
+            <div>App</div>
+        </div>
+    </div>
+    <div class="window-resize"></div> 
+
 </div>

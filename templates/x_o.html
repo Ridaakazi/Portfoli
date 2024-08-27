@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe with PyScript</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pyscript@0.11.0/dist/pyscript.css">
+    <style>
+        .board { display: grid; grid-template-columns: repeat(3, 100px); grid-gap: 5px; }
+        .board button { width: 100px; height: 100px; font-size: 24px; }
+        #scoreboard { font-size: 18px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div id="scoreboard">X: 0   O: 0   Ties: 0</div>
+    <div class="board" id="board"></div>
+    <button id="reset">Reset Game</button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/pyscript@0.11.0/dist/pyscript.js"></script>
+    <py-script>
+from pyscript import Element
+from collections import Counter
+
+# Constants representing the game states
+EMPTY = 0
+X = 1
+O = -1
+
+# Initialize scores
+score_x = 0
+score_o = 0
+score_ties = 0
+
+# Function to determine the current player
+def current_player(board):
+    counts = Counter(board)
+    if counts[X] > counts[O]:
+        return O
+    return X if counts[X] == counts[O] else None
+
+# Function to list possible actions
+def possible_actions(board):
+    player = current_player(board)
+    return [(player, i) for i in range(len(board)) if board[i] == EMPTY]
+
+# Function to apply an action to the board
+def apply_action(board, action):
+    player, index = action
+    new_board = board.copy()
+    new_board[index] = player
+    return new_board
+
+# Function to check if the game has ended
+def is_terminal(board):
+    for i in range(3):
+        # Check rows and columns
+        if board[3 * i] == board[3 * i + 1] == board[3 * i + 2] != EMPTY:
+            return board[3 * i]
+        if board[i] == board[i + 3] == board[i + 6] != EMPTY:
+            return board[i]
+    # Check diagonals
+    if board[0] == board[4] == board[8] != EMPTY:
+        return board[0]
+    if board[2] == board[4] == board[6] != EMPTY:
+        return board[2]
+    # Check for a tie
+    if EMPTY not in board:
+        return 0
+    return None
+
+# Utility function for minimax evaluation
+def utility(board, depth):
+    result = is_terminal(board)
+    if result is not None:
+        return result, depth
+    evaluations = [utility(apply_action(board, action), depth + 1) for action in possible_actions(board)]
+    player = current_player(board)
+    if player == X:
+        best_score = max(evaluations, key=lambda x: x[0])
+    else:
+        best_score = min(evaluations, key=lambda x: x[0])
+    return best_score
+
+# Minimax function to determine the best action
+def minimax(board):
+    actions = possible_actions(board)
+    evaluations = [(action, utility(apply_action(board, action), 1)) for action in actions]
+    if not evaluations:
+        return (0, 0), (0, 0)
+    best_action = min(evaluations, key=lambda x: x[1]) if current_player(board) == O else max(evaluations, key=lambda x: x[1])
+    return best_action
+
+# Function to update the board and check for game end
+def update_board(index, player):
+    global board
+    board[index] = player
+    buttons[index].element.text = 'X' if player == X else 'O'
+    buttons[index].element.disabled = True
+    if is_terminal(board) is not None:
+        handle_game_end()
+
+# Function to handle game end
+def handle_game_end():
+    global score_x, score_o, score_ties
+    result = is_terminal(board)
+    if result == X:
+        score_x += 1
+        Element('scoreboard').element.textContent = f"X: {score_x}   O: {score_o}   Ties: {score_ties}"
+    elif result == O:
+        score_o += 1
+        Element('scoreboard').element.textContent = f"X: {score_x}   O: {score_o}   Ties: {score_ties}"
+    else:
+        score_ties += 1
+        Element('scoreboard').element.textContent = f"X: {score_x}   O: {score_o}   Ties: {score_ties}"
+
+# Function to handle button click for single player mode
+def on_button_click_single(index):
+    update_board(index, X)
+    if is_terminal(board) is None:
+        action = minimax(board)
+        update_board(action[0][1], O)
+
+# Function to handle button click for multiplayer mode
+def on_button_click_multi(index):
+    player = current_player(board)
+    update_board(index, player)
+
+# Function to reset the board for a new game
+def reset_board():
+    global board
+    board = [EMPTY for _ in range(9)]
+    for button in buttons:
+        button.element.text = ''
+        button.element.disabled = False
+
+# Initialize the game board
+def initialize_board(mode):
+    global board, buttons
+    board = [EMPTY for _ in range(9)]
+    buttons = []
+    Element('board').element.innerHTML = ''
+    for i in range(9):
+        button = Element('board').element.appendChild(document.createElement('button'))
+        button.textContent = ''
+        button.style.fontSize = '24px'
+        button.style.width = '100px'
+        button.style.height = '100px'
+        button.onclick = lambda i=i: on_button_click_single(i) if mode == 'Single Player' else on_button_click_multi(i)
+        buttons.append(button)
+
+# Choose mode and initialize the game
+initialize_board('Single Player')
+
+# Add event listener to reset button
+Element('reset').element.onclick = reset_board
+    </py-script>
+</body>
+</html>

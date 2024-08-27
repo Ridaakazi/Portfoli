@@ -7,6 +7,21 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/g1')
+def g1():
+    return render_template('stone_paper.html')
+@app.route('/g2')
+def g2():
+    return render_template('snake.html')
+
+@app.route('/g3')
+def g3():
+    return render_template('4_in_row.html')
+@app.route('/g4')
+def g4():
+    return render_template('x_o.html')
+
+
 @app.route('/games/<path:filename>')
 def download_game(filename):
     # Serve the executable file from the 'output' directory
